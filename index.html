@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOLYDENT | Smile Naturally</title>
+  <meta name="description" content="HOLYDENT is a luxury wellness-inspired dental clinic offering gentle, comprehensive care in a calming natural setting.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #7A9E7E;
+      --moss: #3D5A40;
+      --cream: #F5F0E8;
+      --bark: #6B5744;
+      --gold: #C8A96E;
+      --shadow: 0 24px 60px rgba(61, 90, 64, 0.16);
+      --radius: 24px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --nav-height: 88px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--bark);
+      background:
+        radial-gradient(circle at top left, rgba(122, 158, 126, 0.18), transparent 30%),
+        linear-gradient(180deg, #faf7f1 0%, var(--cream) 42%, #efe8da 100%);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 72px 72px;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    section {
+      position: relative;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .section-padding {
+      padding: 110px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", serif;
+      margin: 0;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.78;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 0.95rem 1.6rem;
+      font-weight: 700;
+      transition: transform 0.45s var(--ease), background-color 0.45s var(--ease), color 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(61, 90, 64, 0.16);
+    }
+
+    .btn-primary {
+      background: var(--moss);
+      color: var(--cream);
+    }
+
+    .btn-primary:hover {
+      background: #314a34;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      border-color: rgba(245, 240, 232, 0.8);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(245, 240, 232, 0.12);
+    }
+
+    .btn-secondary {
+      background: rgba(245, 240, 232, 0.55);
+      color: var(--moss);
+      border-color: rgba(61, 90, 64, 0.14);
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: background-color 0.45s var(--ease), box-shadow 0.45s var(--ease), backdrop-filter 0.45s var(--ease), padding 0.45s var(--ease);
+      padding: 1rem 0;
+    }
+
+    .site-header.scrolled {
+      background: rgba(245, 240, 232, 0.65);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 10px 34px rgba(61, 90, 64, 0.12);
+      padding: 0.65rem 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .logo .holy {
+      color: var(--moss);
+    }
+
+    .logo .dent {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--moss);
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.4rem;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--sage));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.45s var(--ease);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      white-space: nowrap;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(61, 90, 64, 0.15);
+      background: rgba(245, 240, 232, 0.72);
+      border-radius: 50%;
+      color: var(--moss);
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: calc(var(--nav-height) + 2.5rem);
+      color: var(--cream);
+      overflow: hidden;
+      background: rgba(61, 90, 64, 0.2);
+    }
+
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      background: var(--moss);
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(61, 90, 64, 0.55), rgba(245, 240, 232, 0.7));
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 169, 110, 0.22), transparent 70%);
+      filter: blur(10px);
+      pointer-events: none;
+      animation: ambientFloat 10s ease-in-out infinite;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      top: 12%;
+      right: -120px;
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      bottom: 8%;
+      left: -80px;
+      animation-delay: -4s;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+      align-items: end;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.8rem, 8vw, 6.8rem);
+      margin-bottom: 1.4rem;
+      color: #fffdf8;
+      text-wrap: balance;
+      text-shadow: 0 10px 30px rgba(25, 41, 28, 0.18);
+    }
+
+    .hero-subtext {
+      max-width: 620px;
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      color: rgba(61, 90, 64, 0.88);
+      background: rgba(245, 240, 232, 0.55);
+      border: 1px solid rgba(245, 240, 232, 0.42);
+      padding: 1rem 1.15rem;
+      border-radius: 18px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 38px rgba(61, 90, 64, 0.12);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      max-width: 900px;
+    }
+
+    .stat-card {
+      background: rgba(245, 240, 232, 0.16);
+      border: 1px solid rgba(245, 240, 232, 0.2);
+      border-radius: 24px;
+      padding: 1.2rem;
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      transform-origin: center bottom;
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 22px 48px rgba(61, 90, 64, 0.18);
+      border-color: rgba(245, 240, 232, 0.38);
+    }
+
+    .stat-number {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: #fff;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-label {
+      color: rgba(255, 253, 248, 0.92);
+      font-size: 0.95rem;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: grid;
+      place-items: center;
+      gap: 0.4rem;
+      color: rgba(255, 253, 248, 0.95);
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator .arrow {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 253, 248, 0.5);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      animation: floatArrow 2s ease-in-out infinite;
+    }
+
+    @keyframes floatArrow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    @keyframes ambientFloat {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(0, 18px, 0) scale(1.04); }
+    }
+
+    .about-strip {
+      overflow: hidden;
+    }
+
+    .about-card {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.1fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      background: linear-gradient(135deg, rgba(245, 240, 232, 0.9), rgba(245, 240, 232, 0.72));
+      border: 1px solid rgba(122, 158, 126, 0.22);
+      border-radius: 36px;
+      padding: clamp(1.4rem, 4vw, 2.2rem);
+      box-shadow: var(--shadow);
+    }
+
+    .doctor-frame {
+      position: relative;
+      max-width: 480px;
+      transition: transform 0.55s var(--ease);
+    }
+
+    .doctor-frame:hover {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+
+    .doctor-frame::before {
+      content: "";
+      position: absolute;
+      inset: 28px -18px -18px 24px;
+      border-radius: 20px;
+      background: rgba(122, 158, 126, 0.34);
+      border: 2px solid rgba(61, 90, 64, 0.3);
+      z-index: 0;
+    }
+
+    .doctor-frame .image-shell {
+      position: relative;
+      z-index: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid rgba(122, 158, 126, 0.84);
+      background: rgba(122, 158, 126, 0.25);
+      aspect-ratio: 6 / 7;
+    }
+
+    .image-shell {
+      background: rgba(122, 158, 126, 0.16);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-media img,
+    .image-shell img,
+    .service-media img,
+    .contact-backdrop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+
+    .hero-media img.loaded,
+    .image-shell img.loaded,
+    .service-media img.loaded,
+    .contact-backdrop img.loaded {
+      opacity: 1;
+    }
+
+    .doctor-content h2,
+    .section-title {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: var(--moss);
+      margin-bottom: 1rem;
+      text-wrap: balance;
+    }
+
+    .doctor-name {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      color: var(--bark);
+      margin-bottom: 1rem;
+    }
+
+    .doctor-content > p {
+      max-width: 560px;
+      color: rgba(107, 87, 68, 0.9);
+      margin-bottom: 1.4rem;
+      font-size: 1.03rem;
+    }
+
+    .leaf-mark {
+      width: 86px;
+      height: 34px;
+      margin-bottom: 1.4rem;
+      color: var(--sage);
+    }
+
+    .credentials {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .credential-item {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      color: var(--moss);
+      font-weight: 500;
+    }
+
+    .credential-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(122, 158, 126, 0.2);
+      color: var(--moss);
+      flex-shrink: 0;
+    }
+
+    .services-section {
+      background:
+        radial-gradient(circle at top right, rgba(200, 169, 110, 0.16), transparent 28%),
+        linear-gradient(180deg, rgba(245, 240, 232, 0.9), rgba(245, 240, 232, 0.98));
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3.4rem;
+    }
+
+    .section-heading p {
+      color: rgba(107, 87, 68, 0.88);
+      font-size: 1.08rem;
+      margin-top: 0.8rem;
+      max-width: 42ch;
+      margin-inline: auto;
+    }
+
+    .leaf-decor {
+      display: inline-flex;
+      justify-content: center;
+      color: var(--sage);
+      width: 70px;
+      height: 28px;
+      margin-bottom: 1rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .service-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(122, 158, 126, 0.14);
+      border-left: 3px solid transparent;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(61, 90, 64, 0.08);
+      transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease), border-color 0.45s var(--ease), background-color 0.45s var(--ease);
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.28) 44%, transparent 68%);
+      transform: translateX(-130%);
+      transition: transform 0.8s var(--ease);
+      pointer-events: none;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-left-color: var(--sage);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 22px 46px rgba(61, 90, 64, 0.14);
+    }
+
+    .service-card:hover::after {
+      transform: translateX(130%);
+    }
+
+    .service-media {
+      height: 200px;
+      overflow: hidden;
+      background: rgba(122, 158, 126, 0.2);
+    }
+
+    .service-card:hover .service-media img {
+      transform: scale(1.05);
+    }
+
+    .service-body {
+      padding: 1.3rem 1.15rem 1.35rem;
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(200, 169, 110, 0.18);
+      color: var(--moss);
+      flex-shrink: 0;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      color: var(--moss);
+      line-height: 0.98;
+    }
+
+    .service-card p {
+      color: rgba(107, 87, 68, 0.88);
+      font-size: 0.95rem;
+      line-height: 1.68;
+    }
+
+    .appointment-section {
+      background:
+        linear-gradient(135deg, rgba(122, 158, 126, 0.14), rgba(245, 240, 232, 0.95)),
+        radial-gradient(circle at top left, rgba(122, 158, 126, 0.16), transparent 34%);
+    }
+
+    .appointment-layout {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .appointment-panel {
+      padding: clamp(1.2rem, 3vw, 2rem);
+    }
+
+    .appointment-panel h2 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      color: var(--moss);
+      font-style: italic;
+      margin-bottom: 0.8rem;
+    }
+
+    .appointment-panel > p {
+      max-width: 620px;
+      color: rgba(107, 87, 68, 0.9);
+      margin-bottom: 1.8rem;
+      font-size: 1.04rem;
+    }
+
+    .form-shell {
+      background: rgba(245, 240, 232, 0.56);
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(18px);
+      border-radius: 30px;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      box-shadow: 0 30px 70px rgba(61, 90, 64, 0.14);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .form-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(200, 169, 110, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .form-state {
+      transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+    }
+
+    .form-state.hidden {
+      opacity: 0;
+      transform: translateY(18px);
+      pointer-events: none;
+      position: absolute;
+      inset: 1.2rem;
+    }
+
+    .booking-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--moss);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(61, 90, 64, 0.12);
+      border-radius: 18px;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.66);
+      color: var(--bark);
+      outline: none;
+      transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), background-color 0.35s var(--ease);
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 4px rgba(122, 158, 126, 0.16);
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .field input.invalid,
+    .field select.invalid {
+      border-color: #c55d5d;
+      box-shadow: 0 0 0 4px rgba(197, 93, 93, 0.12);
+    }
+
+    .submit-btn {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .thank-you {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .thank-inner {
+      display: grid;
+      gap: 1rem;
+      justify-items: center;
+      color: var(--moss);
+    }
+
+    .checkmark {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      border: 2px solid rgba(122, 158, 126, 0.55);
+      display: grid;
+      place-items: center;
+      position: relative;
+      background: rgba(122, 158, 126, 0.14);
+    }
+
+    .checkmark::after {
+      content: "";
+      width: 22px;
+      height: 42px;
+      border-right: 4px solid var(--moss);
+      border-bottom: 4px solid var(--moss);
+      transform: rotate(45deg) scale(0);
+      transform-origin: center;
+      animation: checkPop 0.55s 0.15s var(--ease) forwards;
+    }
+
+    @keyframes checkPop {
+      to { transform: rotate(45deg) scale(1); }
+    }
+
+    .thank-you h3 {
+      font-size: 2.2rem;
+    }
+
+    .contact-section {
+      color: var(--cream);
+      background: #3D5A40;
+      overflow: hidden;
+    }
+
+    .contact-backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: rgba(61, 90, 64, 0.88);
+    }
+
+    .contact-backdrop::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(61, 90, 64, 0.88);
+    }
+
+    .contact-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-card {
+      background: rgba(245, 240, 232, 0.1);
+      border: 1px solid rgba(245, 240, 232, 0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 1.3rem;
+      transition: transform 0.45s var(--ease), background-color 0.45s var(--ease), border-color 0.45s var(--ease);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-6px);
+      background: rgba(245, 240, 232, 0.14);
+      border-color: rgba(245, 240, 232, 0.22);
+    }
+
+    .contact-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+      color: #fffaf0;
+    }
+
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 0.9rem;
+      background: rgba(200, 169, 110, 0.22);
+      color: var(--gold);
+    }
+
+    .contact-bottom {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.4rem;
+      align-items: start;
+    }
+
+    .map-shell,
+    .hours-card {
+      background: rgba(245, 240, 232, 0.1);
+      border: 1px solid rgba(245, 240, 232, 0.12);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 1rem;
+    }
+
+    .map-shell iframe {
+      width: 100%;
+      height: 320px;
+      border: 0;
+      border-radius: 22px;
+      display: block;
+    }
+
+    .hours-card h3 {
+      font-size: 2rem;
+      color: #fffaf0;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hours-card p + p {
+      margin-top: 0.6rem;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(245, 240, 232, 0.12);
+      color: rgba(245, 240, 232, 0.8);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .floating-bot {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1200;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.8rem;
+    }
+
+    .bot-trigger {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, var(--moss), #507255);
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(61, 90, 64, 0.28);
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 18px 40px rgba(61, 90, 64, 0.28), 0 0 0 0 rgba(122, 158, 126, 0.35); }
+      50% { box-shadow: 0 18px 40px rgba(61, 90, 64, 0.28), 0 0 0 14px rgba(122, 158, 126, 0); }
+    }
+
+    .chat-panel {
+      width: min(340px, calc(100vw - 24px));
+      height: min(480px, calc(100vh - 110px));
+      background: rgba(245, 240, 232, 0.92);
+      border: 1px solid rgba(122, 158, 126, 0.2);
+      border-radius: 28px;
+      box-shadow: 0 32px 70px rgba(61, 90, 64, 0.22);
+      overflow: hidden;
+      transform-origin: bottom right;
+      transform: translateY(14px) scale(0.94);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-panel.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .chat-header {
+      padding: 1rem 1rem 0.9rem;
+      background: linear-gradient(135deg, var(--moss), #507255);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .chat-header strong {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .chat-close {
+      border: none;
+      background: rgba(255, 255, 255, 0.16);
+      color: var(--cream);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      background:
+        radial-gradient(circle at top right, rgba(122, 158, 126, 0.12), transparent 35%),
+        rgba(245, 240, 232, 0.88);
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 0.8rem 0.9rem;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      box-shadow: 0 8px 22px rgba(61, 90, 64, 0.08);
+      white-space: pre-wrap;
+    }
+
+    .message.user {
+      margin-left: auto;
+      background: var(--moss);
+      color: var(--cream);
+      border-bottom-right-radius: 6px;
+    }
+
+    .message.bot {
+      margin-right: auto;
+      background: #fbf7ef;
+      color: var(--bark);
+      border-bottom-left-radius: 6px;
+    }
+
+    .typing {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      min-height: 1rem;
+    }
+
+    .typing span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      animation: bounce 1.1s infinite ease-in-out;
+    }
+
+    .typing span:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+      40% { transform: translateY(-4px); opacity: 1; }
+    }
+
+    .chat-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.8rem;
+      padding: 1rem;
+      border-top: 1px solid rgba(61, 90, 64, 0.1);
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .chat-form input {
+      width: 100%;
+      border: 1px solid rgba(61, 90, 64, 0.12);
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      padding: 0.9rem 1rem;
+      outline: none;
+    }
+
+    .chat-form button {
+      min-width: 92px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.visible .service-icon,
+    .reveal.visible .contact-icon,
+    .reveal.visible .credential-icon {
+      animation: iconBloom 0.7s var(--ease) both;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      animation: fadeUp 0.9s var(--ease) forwards;
+      animation-delay: var(--delay, 0ms);
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes iconBloom {
+      0% {
+        opacity: 0;
+        transform: scale(0.7) rotate(-8deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .contact-bottom,
+      .about-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      :root {
+        --nav-height: 76px;
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 1rem;
+        right: 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(245, 240, 232, 0.92);
+        border: 1px solid rgba(122, 158, 126, 0.18);
+        border-radius: 24px;
+        backdrop-filter: blur(18px);
+        box-shadow: 0 18px 36px rgba(61, 90, 64, 0.14);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: max-height 0.4s var(--ease), opacity 0.4s var(--ease);
+      }
+
+      .nav-links.open {
+        max-height: 320px;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid rgba(61, 90, 64, 0.08);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links a {
+        padding: 1rem 1.2rem;
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .stats,
+      .contact-grid,
+      .booking-form {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-bottom: 6rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .section-padding {
+        padding: 88px 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(100% - 1.2rem, 1180px);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 15vw, 4.1rem);
+      }
+
+      .doctor-frame::before {
+        inset: 18px -10px -10px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo" aria-label="HOLYDENT home">
+        <span class="holy">HOLY</span><span class="dent">DENT</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7H20M4 12H20M4 17H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#appointment">Appointment</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="#appointment" class="btn btn-primary nav-cta">Book Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-media">
+        <img loading="lazy" data-fallback-label="Dental Clinic" src="https://source.unsplash.com/1600x900/?dental,clinic,patient,smile" alt="Comforting modern dental clinic environment with a natural wellness-inspired atmosphere">
+      </div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow fade-up" style="--delay: 0ms;">Smile Naturally</div>
+          <h1 class="fade-up" style="--delay: 120ms;">Your Smile,<br>Our Sacred Craft</h1>
+          <p class="hero-subtext fade-up" style="--delay: 220ms;">Experience holistic, gentle dental care rooted in precision, comfort, and a wellness-first philosophy that keeps every visit calm, restorative, and deeply personal.</p>
+          <div class="hero-actions fade-up" style="--delay: 320ms;">
+            <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+            <a href="#services" class="btn btn-outline">Our Services</a>
+          </div>
+          <div class="stats">
+            <article class="stat-card fade-up" style="--delay: 420ms;">
+              <span class="stat-number" data-target="2000" data-suffix="+">0</span>
+              <span class="stat-label">Happy Patients</span>
+            </article>
+            <article class="stat-card fade-up" style="--delay: 520ms;">
+              <span class="stat-number" data-target="15" data-suffix="+">0</span>
+              <span class="stat-label">Years Experience</span>
+            </article>
+            <article class="stat-card fade-up" style="--delay: 620ms;">
+              <span class="stat-number" data-target="98" data-suffix="%">0</span>
+              <span class="stat-label">Satisfaction Rate</span>
+            </article>
+          </div>
+        </div>
+      </div>
+      <a href="#services" class="scroll-indicator" aria-label="Scroll to services">
+        <span>Scroll</span>
+        <span class="arrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </section>
+
+    <section class="about-strip section-padding">
+      <div class="container">
+        <div class="about-card">
+          <div class="doctor-frame reveal">
+            <div class="image-shell">
+              <img loading="lazy" data-fallback-label="Lead Dentist" src="https://plus.unsplash.com/premium_photo-1674575133647-b9450dd4cb74?auto=format&fit=crop&w=1200&q=80" alt="Professional female dentist treating a patient in a modern clinic">
+            </div>
+          </div>
+          <div class="doctor-content reveal" style="--delay: 120ms;">
+            <div class="eyebrow">Meet Our Lead Dentist</div>
+            <h2>Meet Our Lead Dentist</h2>
+            <h3 class="doctor-name">Dr. Priya Sharma BDS MDS</h3>
+            <p>Dr. Priya Sharma blends advanced restorative dentistry with a wellness-centered approach, helping patients feel safe, seen, and genuinely cared for at every step.</p>
+            <p>Her expertise spans smile design, orthodontic planning, minimally invasive treatments, and compassionate family care with a focus on long-term oral health.</p>
+            <svg class="leaf-mark" viewBox="0 0 120 44" fill="none" aria-hidden="true">
+              <path d="M5 28C23 22 37 7 54 6C49 18 39 29 24 36" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M59 34C76 28 89 15 110 10C104 24 92 35 75 40" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+            <div class="credentials">
+              <div class="credential-item">
+                <span class="credential-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 6V12L16 14M21 12C21 16.971 16.971 21 12 21C7.02944 21 3 16.971 3 12C3 7.02944 7.02944 3 12 3C16.971 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>15 Years Experience</span>
+              </div>
+              <div class="credential-item">
+                <span class="credential-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M16 11C17.6569 11 19 9.65685 19 8C19 6.34315 17.6569 5 16 5C14.3431 5 13 6.34315 13 8C13 9.65685 14.3431 11 16 11Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M8 13C10.2091 13 12 11.2091 12 9C12 6.79086 10.2091 5 8 5C5.79086 5 4 6.79086 4 9C4 11.2091 5.79086 13 8 13Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M8 20C11.3137 20 14 18.2091 14 16C14 13.7909 11.3137 12 8 12C4.68629 12 2 13.7909 2 16C2 18.2091 4.68629 20 8 20Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M16 19C18.7614 19 21 17.433 21 15.5C21 13.567 18.7614 12 16 12C13.2386 12 11 13.567 11 15.5C11 17.433 13.2386 19 16 19Z" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                </span>
+                <span>2000+ Patients</span>
+              </div>
+              <div class="credential-item">
+                <span class="credential-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 3L20 7V12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12V7L12 3Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M9 11L11 13L15 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>Certified Orthodontist</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section section-padding" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="leaf-decor">
+            <svg viewBox="0 0 96 36" fill="none" aria-hidden="true">
+              <path d="M6 26C20 22 28 9 40 8C37 17 30 27 18 31" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M50 30C63 24 74 12 90 8C85 19 75 30 61 33" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h2 class="section-title">What We Offer</h2>
+          <p>Comprehensive care for every smile</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Teeth Cleaning" src="https://images.unsplash.com/photo-1766338390573-ec092d69cdcb?auto=format&fit=crop&w=900&q=80" alt="Dentist cleaning a patient's teeth with dental tools">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🪥</span><h3>Teeth Cleaning</h3></div>
+              <p>Gentle plaque removal and polishing for a refreshed, healthier smile.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 80ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Cavity Filling" src="https://plus.unsplash.com/premium_photo-1674575133647-b9450dd4cb74?auto=format&fit=crop&w=900&q=80" alt="Dentist treating a patient's tooth during a restorative filling procedure">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🦷</span><h3>Cavity Filling</h3></div>
+              <p>Durable, aesthetic fillings that restore comfort and protect tooth structure.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 160ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Root Canal" src="https://plus.unsplash.com/premium_photo-1762907785250-66a344be622b?auto=format&fit=crop&w=900&q=80" alt="Dental x-ray showing tooth roots for root canal evaluation">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🌿</span><h3>Root Canal</h3></div>
+              <p>Precise pain-relieving treatment designed to save and strengthen natural teeth.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 240ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Crown and Bridge" src="https://images.unsplash.com/photo-1771442873035-474765b40ac6?auto=format&fit=crop&w=900&q=80" alt="Dental implant and crown held in a gloved hand">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">✨</span><h3>Crown and Bridge</h3></div>
+              <p>Elegant restorations that rebuild bite function with seamless aesthetics.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 320ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Teeth Whitening" src="https://images.unsplash.com/photo-1745450055524-0ed4359cfc26?auto=format&fit=crop&w=900&q=80" alt="Woman smiling with bright white teeth after whitening treatment">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">☀️</span><h3>Teeth Whitening</h3></div>
+              <p>Safe brightening sessions that lift stains while preserving enamel comfort.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 400ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Tooth Extraction" src="https://images.unsplash.com/photo-1752842350662-2479127ed490?auto=format&fit=crop&w=900&q=80" alt="Extracted tooth placed next to dental extraction forceps">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🌱</span><h3>Tooth Extraction</h3></div>
+              <p>Comfort-focused extractions with attentive aftercare and healing guidance.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 480ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Braces and Aligners" src="https://images.unsplash.com/photo-1720685193942-5a1c5ac7fd80?auto=format&fit=crop&w=900&q=80" alt="Orthodontic braces and clear aligner models displayed side by side">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🌼</span><h3>Braces and Aligners</h3></div>
+              <p>Thoughtful orthodontic plans for healthier alignment and confident smiles.</p>
+            </div>
+          </article>
+          <article class="service-card reveal" style="--delay: 560ms;">
+            <div class="service-media">
+              <img loading="lazy" data-fallback-label="Pediatric Dentistry" src="https://images.unsplash.com/photo-1639401122140-0233822042b5?auto=format&fit=crop&w=900&q=80" alt="Little boy getting his teeth brushed during a child oral care routine">
+            </div>
+            <div class="service-body">
+              <div class="service-top"><span class="service-icon">🍃</span><h3>Pediatric Dentistry</h3></div>
+              <p>Kind, encouraging dental care that helps children feel relaxed and safe.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="appointment-section section-padding" id="appointment">
+      <div class="container appointment-layout">
+        <div class="appointment-panel reveal">
+          <div class="eyebrow">Reserve Calm Care</div>
+          <h2>Reserve Your Visit</h2>
+          <p>Choose a time that suits you and we’ll prepare a smooth, thoughtful experience from the moment you arrive.</p>
+          <div class="form-shell">
+            <div class="form-state" id="formState">
+              <form class="booking-form" id="bookingForm" novalidate>
+                <div class="field"><label for="fullName">Full Name</label><input id="fullName" name="fullName" type="text" required></div>
+                <div class="field"><label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" required></div>
+                <div class="field"><label for="date">Appointment Date</label><input id="date" name="date" type="date" required></div>
+                <div class="field"><label for="time">Appointment Time</label><input id="time" name="time" type="time" required></div>
+                <div class="field full">
+                  <label for="service">Service</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option>Teeth Cleaning</option>
+                    <option>Cavity Filling</option>
+                    <option>Root Canal</option>
+                    <option>Crown and Bridge</option>
+                    <option>Teeth Whitening</option>
+                    <option>Tooth Extraction</option>
+                    <option>Braces and Aligners</option>
+                    <option>Pediatric Dentistry</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label for="message">Message (Optional)</label>
+                  <textarea id="message" name="message" placeholder="Share anything we should know before your visit."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary submit-btn">Confirm Appointment</button>
+              </form>
+            </div>
+            <div class="form-state thank-you hidden" id="thankYouState" aria-live="polite">
+              <div class="thank-inner">
+                <div class="checkmark" aria-hidden="true"></div>
+                <h3>Appointment Reserved</h3>
+                <p id="thankYouMessage">Thank you! Your appointment details are confirmed.</p>
+                <button class="btn btn-secondary" id="resetFormBtn" type="button">Book Another</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section section-padding" id="contact">
+      <div class="contact-backdrop">
+        <img loading="lazy" data-fallback-label="Nature Leaves" src="https://source.unsplash.com/1600x600/?green,leaf,nature,botanical,calm" alt="Soft green leaves creating a calming nature-inspired backdrop for the clinic contact section">
+      </div>
+      <div class="container contact-content">
+        <div class="section-heading reveal">
+          <div class="eyebrow" style="color: rgba(245,240,232,0.86);">Stay Connected</div>
+          <h2 class="section-title" style="color: var(--cream);">Visit HOLYDENT</h2>
+          <p style="color: rgba(245, 240, 232, 0.8);">A serene clinic experience in the heart of New Delhi.</p>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <div class="contact-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21C16 17 19 13.4183 19 10C19 6.13401 15.866 3 12 3C8.13401 3 5 6.13401 5 10C5 13.4183 8 17 12 21Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <strong>Location</strong>
+            <p>123 Green Valley Road, New Delhi 110001</p>
+          </article>
+          <article class="contact-card reveal" style="--delay: 120ms;">
+            <div class="contact-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 4H9L11 9L8.5 10.5C9.57141 12.6707 11.3293 14.4286 13.5 15.5L15 13L20 15V19C20 20.1046 19.1046 21 18 21C10.268 21 4 14.732 4 7C4 5.89543 4.89543 5 6 5H5V4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <strong>Phone</strong>
+            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+          </article>
+          <article class="contact-card reveal" style="--delay: 240ms;">
+            <div class="contact-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 6H20V18H4V6Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <strong>Email</strong>
+            <p><a href="mailto:hello@holydent.in">hello@holydent.in</a></p>
+          </article>
+        </div>
+        <div class="contact-bottom">
+          <div class="map-shell reveal">
+            <iframe loading="lazy" title="Map to HOLYDENT in New Delhi" src="https://maps.google.com/maps?q=New+Delhi&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <aside class="hours-card reveal" style="--delay: 120ms;">
+            <h3>Working Hours</h3>
+            <p>Mon-Sat 9AM-7PM</p>
+            <p>Sunday by Appointment</p>
+            <p>For urgent dental concerns, call ahead and our team will guide you with next steps.</p>
+          </aside>
+        </div>
+        <footer class="footer">© 2025 HOLYDENT. All rights reserved.</footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-bot">
+    <div class="chat-panel" id="chatPanel" aria-hidden="true">
+      <div class="chat-header">
+        <strong>HolyBot — Ask Me Anything</strong>
+        <button class="chat-close" type="button" id="closeChat" aria-label="Close assistant">×</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot">Welcome to HOLYDENT. Ask about treatments, pain management, aftercare, hygiene, or booking guidance.</div>
+      </div>
+      <form class="chat-form" id="chatForm">
+        <input type="text" id="chatInput" placeholder="Ask a dental question..." autocomplete="off" required>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+    <button class="bot-trigger" id="botTrigger" type="button" aria-label="Open HolyBot">🦷</button>
+  </div>
+  <script>
+    const GROQ_API_KEY = "YOUR_GROQ_API_KEY";
+
+    const siteHeader = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const navLinkItems = document.querySelectorAll(".nav-links a");
+    const revealItems = document.querySelectorAll(".reveal");
+    const counterItems = document.querySelectorAll(".stat-number");
+    const imageNodes = document.querySelectorAll("img");
+    const bookingForm = document.getElementById("bookingForm");
+    const formState = document.getElementById("formState");
+    const thankYouState = document.getElementById("thankYouState");
+    const thankYouMessage = document.getElementById("thankYouMessage");
+    const resetFormBtn = document.getElementById("resetFormBtn");
+    const botTrigger = document.getElementById("botTrigger");
+    const chatPanel = document.getElementById("chatPanel");
+    const closeChat = document.getElementById("closeChat");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const chatMessages = document.getElementById("chatMessages");
+
+    const systemPrompt = "You are HolyBot, the AI dental assistant for HOLYDENT clinic. Answer only dental, oral care, treatment, pain, hygiene, post-treatment, cost, and appointment questions. If asked anything unrelated, politely redirect to dental topics. Keep every answer short, crisp, reassuring, and specific. Give practical next steps when useful. Do not write long explanations.";
+
+    const chatHistory = [
+      { role: "system", content: systemPrompt }
+    ];
+
+    function onScroll() {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 10);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    menuToggle?.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    navLinkItems.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    let countersAnimated = false;
+
+    function animateCounter(el) {
+      const target = Number(el.dataset.target || 0);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1800;
+      const start = performance.now();
+
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(target * eased);
+        el.textContent = `${value}${suffix}`;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = `${target}${suffix}`;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !countersAnimated) {
+          countersAnimated = true;
+          counterItems.forEach(animateCounter);
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+
+    if (counterItems.length) {
+      statsObserver.observe(counterItems[0].closest(".stats"));
+    }
+
+    function iconForLabel(label) {
+      const text = String(label || "").toLowerCase();
+      if (text.includes("clean")) return "🪥";
+      if (text.includes("filling")) return "🦷";
+      if (text.includes("root")) return "🌿";
+      if (text.includes("crown")) return "👑";
+      if (text.includes("whitening")) return "✨";
+      if (text.includes("extraction")) return "🛠";
+      if (text.includes("braces") || text.includes("aligner")) return "😁";
+      if (text.includes("pediatric") || text.includes("child")) return "🌼";
+      if (text.includes("dentist") || text.includes("doctor")) return "👩‍⚕️";
+      if (text.includes("appointment") || text.includes("clinic")) return "🏥";
+      if (text.includes("nature") || text.includes("leaf")) return "🍃";
+      return "HOLYDENT";
+    }
+
+    function createPlaceholderDataUri(label) {
+      const safeLabel = String(label || "HOLYDENT")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+      const visualIcon = iconForLabel(label);
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="${safeLabel}">
+          <defs>
+            <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3D5A40"/>
+              <stop offset="55%" stop-color="#7A9E7E"/>
+              <stop offset="100%" stop-color="#C8A96E"/>
+            </linearGradient>
+            <radialGradient id="glow" cx="25%" cy="20%" r="70%">
+              <stop offset="0%" stop-color="rgba(245,240,232,0.55)"/>
+              <stop offset="100%" stop-color="rgba(245,240,232,0)"/>
+            </radialGradient>
+          </defs>
+          <rect width="1200" height="800" fill="url(#bg)"/>
+          <rect width="1200" height="800" fill="rgba(245,240,232,0.12)"/>
+          <circle cx="220" cy="140" r="220" fill="url(#glow)"/>
+          <circle cx="1000" cy="660" r="260" fill="rgba(245,240,232,0.08)"/>
+          <path d="M260 560C420 420 520 310 660 250C620 390 530 520 360 620" fill="none" stroke="#F5F0E8" stroke-opacity=".45" stroke-width="12" stroke-linecap="round"/>
+          <path d="M740 560C820 450 910 380 1030 340C980 470 900 580 790 640" fill="none" stroke="#F5F0E8" stroke-opacity=".35" stroke-width="10" stroke-linecap="round"/>
+          <text x="92" y="230" fill="#F5F0E8" font-size="120">${visualIcon}</text>
+          <text x="80" y="640" fill="#F5F0E8" font-family="DM Sans, Arial, sans-serif" font-size="34" letter-spacing="8">HOLYDENT</text>
+          <text x="80" y="700" fill="#F5F0E8" font-family="Cormorant Garamond, Georgia, serif" font-size="76">${safeLabel}</text>
+        </svg>`;
+      return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    }
+
+    function applyImageFallback(img) {
+      if (img.dataset.fallbackApplied === "true") return;
+      img.dataset.fallbackApplied = "true";
+      img.src = createPlaceholderDataUri(img.dataset.fallbackLabel || img.alt || "HOLYDENT visual");
+      img.classList.add("loaded");
+    }
+
+    imageNodes.forEach((img) => {
+      const markLoaded = () => {
+        if (img.naturalWidth > 0) {
+          img.classList.add("loaded");
+        } else {
+          applyImageFallback(img);
+        }
+      };
+
+      if (img.complete) {
+        markLoaded();
+      } else {
+        img.addEventListener("load", markLoaded, { once: true });
+        img.addEventListener("error", () => applyImageFallback(img), { once: true });
+
+        const usesSourceEndpoint = /source\.unsplash\.com/i.test(img.currentSrc || img.src || "");
+        if (usesSourceEndpoint) {
+          window.setTimeout(() => {
+            if (!img.classList.contains("loaded") && img.naturalWidth === 0) {
+              applyImageFallback(img);
+            }
+          }, 7000);
+        }
+      }
+    });
+
+    function formatDate(dateValue) {
+      const date = new Date(dateValue + "T00:00:00");
+      return new Intl.DateTimeFormat("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }).format(date);
+    }
+
+    function formatTime(timeValue) {
+      const [hours = "0", minutes = "0"] = timeValue.split(":");
+      const date = new Date();
+      date.setHours(Number(hours), Number(minutes), 0, 0);
+      return new Intl.DateTimeFormat("en-IN", {
+        hour: "numeric",
+        minute: "2-digit"
+      }).format(date);
+    }
+
+    if (bookingForm) {
+      const requiredFields = bookingForm.querySelectorAll("[required]");
+
+      requiredFields.forEach((field) => {
+        field.addEventListener("input", () => field.classList.remove("invalid"));
+        field.addEventListener("change", () => field.classList.remove("invalid"));
+      });
+
+      bookingForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        let hasError = false;
+
+        requiredFields.forEach((field) => {
+          if (!field.value.trim()) {
+            field.classList.add("invalid");
+            hasError = true;
+          } else {
+            field.classList.remove("invalid");
+          }
+        });
+
+        if (hasError) return;
+
+        const formData = new FormData(bookingForm);
+        const name = formData.get("fullName");
+        const phone = formData.get("phone");
+        const date = formData.get("date");
+        const time = formData.get("time");
+
+        thankYouMessage.textContent = `Thank you ${name}! Your appointment is confirmed for ${formatDate(date)} at ${formatTime(time)}. We will call you on ${phone} to confirm.`;
+        formState.classList.add("hidden");
+        thankYouState.classList.remove("hidden");
+      });
+
+      resetFormBtn?.addEventListener("click", () => {
+        bookingForm.reset();
+        thankYouState.classList.add("hidden");
+        formState.classList.remove("hidden");
+        bookingForm.querySelectorAll(".invalid").forEach((field) => field.classList.remove("invalid"));
+      });
+    }
+
+    function toggleChat(forceOpen) {
+      const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !chatPanel.classList.contains("open");
+      chatPanel.classList.toggle("open", shouldOpen);
+      chatPanel.setAttribute("aria-hidden", String(!shouldOpen));
+      if (shouldOpen) {
+        setTimeout(() => chatInput.focus(), 150);
+      }
+    }
+
+    botTrigger?.addEventListener("click", () => toggleChat(true));
+    closeChat?.addEventListener("click", () => toggleChat(false));
+
+    function appendMessage(content, role, isTyping = false) {
+      const message = document.createElement("div");
+      message.className = `message ${role}`;
+      if (isTyping) {
+        message.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+      } else {
+        message.textContent = content;
+      }
+      chatMessages.appendChild(message);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return message;
+    }
+
+    async function askHolyBot(userText) {
+      const typingNode = appendMessage("", "bot", true);
+
+      try {
+        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${GROQ_API_KEY}`
+          },
+          body: JSON.stringify({
+            model: "llama-3.3-70b-versatile",
+            messages: [
+              ...chatHistory,
+              { role: "user", content: userText }
+            ],
+            temperature: 0.4,
+            max_tokens: 180
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`API error ${response.status}`);
+        }
+
+        const data = await response.json();
+        const reply = data?.choices?.[0]?.message?.content?.trim() || "I'm sorry, I couldn't generate a response just now.";
+
+        typingNode.remove();
+        appendMessage(reply, "bot");
+        chatHistory.push({ role: "user", content: userText });
+        chatHistory.push({ role: "assistant", content: reply });
+      } catch (error) {
+        typingNode.remove();
+        appendMessage("I'm having trouble reaching HolyBot right now. Please check the Groq API key and try again in a moment.", "bot");
+      }
+    }
+
+    chatForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const userText = chatInput.value.trim();
+      if (!userText) return;
+
+      toggleChat(true);
+      appendMessage(userText, "user");
+      chatInput.value = "";
+      await askHolyBot(userText);
+    });
+  </script>
+</body>
+</html>
