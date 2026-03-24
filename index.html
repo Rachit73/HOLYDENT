@@ -1556,8 +1556,6 @@
     <button class="bot-trigger" id="botTrigger" type="button" aria-label="Open HolyBot">🦷</button>
   </div>
   <script>
-    const GROQ_API_KEY = "YOUR_GROQ_API_KEY";
-
     const siteHeader = document.querySelector(".site-header");
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.getElementById("nav-links");
@@ -1821,20 +1819,16 @@
       const typingNode = appendMessage("", "bot", true);
 
       try {
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+        const response = await fetch("/api/chat", {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${GROQ_API_KEY}`
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            model: "llama-3.3-70b-versatile",
             messages: [
               ...chatHistory,
               { role: "user", content: userText }
-            ],
-            temperature: 0.4,
-            max_tokens: 180
+            ]
           })
         });
 
