@@ -133,6 +133,9 @@
       font-weight: 700;
       transition: transform 0.45s var(--ease), background-color 0.45s var(--ease), color 0.45s var(--ease), border-color 0.45s var(--ease), box-shadow 0.45s var(--ease);
       cursor: pointer;
+      min-height: 54px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .btn:hover {
@@ -259,6 +262,8 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       transition: transform 0.35s var(--ease), background-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+      position: relative;
+      z-index: 1005;
     }
 
     .menu-toggle:hover,
@@ -358,6 +363,8 @@
       gap: 1rem;
       margin-top: 2rem;
       margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
     }
 
     .stats {
@@ -1623,6 +1630,7 @@
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.getElementById("nav-links");
     const navLinkItems = document.querySelectorAll(".nav-links a");
+    const internalAnchors = document.querySelectorAll('a[href^="#"]');
     const revealItems = document.querySelectorAll(".reveal");
     const counterItems = document.querySelectorAll(".stat-number");
     const imageNodes = document.querySelectorAll("img");
@@ -1674,22 +1682,26 @@
       }
     });
 
-    navLinkItems.forEach((link) => {
+    function scrollToAnchor(href) {
+      const target = document.querySelector(href);
+      if (!target) return;
+      const headerOffset = siteHeader.offsetHeight + 8;
+      const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({
+        top: targetTop,
+        behavior: prefersReducedMotion.matches ? "auto" : "smooth"
+      });
+    }
+
+    internalAnchors.forEach((link) => {
       link.addEventListener("click", (event) => {
         const href = link.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          event.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            const headerOffset = siteHeader.offsetHeight + 8;
-            const targetTop = target.getBoundingClientRect().top + window.scrollY - headerOffset;
-            window.scrollTo({
-              top: targetTop,
-              behavior: prefersReducedMotion.matches ? "auto" : "smooth"
-            });
-          }
+        if (!href || href === "#") return;
+        event.preventDefault();
+        scrollToAnchor(href);
+        if (navLinks.contains(link)) {
+          closeMobileMenu();
         }
-        closeMobileMenu();
       });
     });
 
